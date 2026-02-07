@@ -3,24 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>varleew_developer | Разработчик</title>
+    <title>varleew_developer</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', 'Consolas', monospace;
+            font-family: 'Consolas', 'Monaco', monospace;
         }
         
         body {
-            background: #0a0a12;
+            background: #0a0a0f;
             color: #f0f0f0;
             min-height: 100vh;
             overflow-x: hidden;
-            position: relative;
         }
         
-        /* ФОН КОДА - БОЛЕЕ ЗАМЕТНЫЙ */
+        /* Движущийся код */
         .code-background {
             position: fixed;
             top: 0;
@@ -29,42 +28,41 @@
             height: 100%;
             z-index: -1;
             overflow: hidden;
-            opacity: 0.25; /* Увеличили прозрачность */
+            opacity: 0.3;
         }
         
         .code-column {
             position: absolute;
             top: 0;
             width: 33.33%;
-            height: 200%; /* Удвоили высоту */
+            height: 300%;
             padding: 20px;
-            font-size: 15px; /* Увеличили шрифт */
-            line-height: 1.4;
+            font-size: 14px;
+            line-height: 1.5;
             white-space: pre;
-            animation: floatUp 40s linear infinite; /* Ускорили анимацию */
-            font-weight: 600; /* Жирный шрифт */
-            text-shadow: 0 0 10px; /* Добавили свечение */
+            animation: floatUp 25s linear infinite;
+            font-weight: 500;
         }
         
         .python-code {
             left: 0;
-            color: #4ec9b0;
+            color: #00ff88;
+            text-shadow: 0 0 10px #00ff88;
             animation-delay: 0s;
-            text-shadow: 0 0 10px rgba(78, 201, 176, 0.8);
         }
         
         .cpp-code {
             left: 33.33%;
-            color: #569cd6;
-            animation-delay: -13s;
-            text-shadow: 0 0 10px rgba(86, 156, 214, 0.8);
+            color: #0088ff;
+            text-shadow: 0 0 10px #0088ff;
+            animation-delay: -8s;
         }
         
         .js-code {
             left: 66.66%;
-            color: #f8c555;
-            animation-delay: -26s;
-            text-shadow: 0 0 10px rgba(248, 197, 85, 0.8);
+            color: #ffaa00;
+            text-shadow: 0 0 10px #ffaa00;
+            animation-delay: -16s;
         }
         
         @keyframes floatUp {
@@ -72,898 +70,335 @@
                 transform: translateY(100vh);
             }
             100% {
-                transform: translateY(-100%);
+                transform: translateY(-200%);
             }
         }
         
-        /* ПРОЗРАЧНЫЙ КОНТЕЙНЕР */
+        /* Контент */
         .bio-container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 30px 20px;
             position: relative;
-            z-index: 1;
-            background: rgba(10, 10, 18, 0.4); /* Более прозрачный */
-            backdrop-filter: blur(5px); /* Меньше размытия */
+            z-index: 2;
+            background: rgba(10, 10, 15, 0.3);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
         }
         
         .header {
             text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-        }
-        
-        .header::after {
-            content: "";
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #00adb5, transparent);
+            margin-bottom: 40px;
+            padding: 20px;
         }
         
         .profile-icon {
-            width: 140px;
-            height: 140px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #0a0a12 0%, #1a1a2e 100%);
-            margin: 0 auto 30px;
+            background: rgba(0, 136, 255, 0.1);
+            margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 3px solid #00adb5;
-            box-shadow: 0 0 40px rgba(0, 173, 181, 0.6); /* Усилили свечение */
-            position: relative;
-            overflow: hidden;
-            animation: pulse 3s ease-in-out infinite;
+            border: 2px solid #0088ff;
+            box-shadow: 0 0 20px rgba(0, 136, 255, 0.5);
         }
         
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 0 40px rgba(0, 173, 181, 0.6);
-            }
-            50% {
-                box-shadow: 0 0 60px rgba(0, 173, 181, 0.9);
-            }
+        .profile-icon i {
+            font-size: 40px;
+            color: #00ff88;
         }
         
-        .profile-icon::before {
-            content: "";
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            background: conic-gradient(transparent, #00adb5, transparent 30%);
-            animation: rotate 4s linear infinite; /* Ускорили вращение */
-        }
-        
-        .profile-icon-inner {
-            width: 130px;
-            height: 130px;
-            background: #0a0a12;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 52px;
-            color: #00adb5;
-            z-index: 2;
-        }
-        
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-        
-        .header h1 {
-            font-size: 3.2rem;
+        h1 {
+            font-size: 2.5rem;
+            color: #00ff88;
+            text-shadow: 0 0 15px #00ff88;
             margin-bottom: 10px;
-            color: #00adb5;
-            text-shadow: 0 0 25px rgba(0, 173, 181, 0.8);
-            letter-spacing: 1px;
-            background: linear-gradient(90deg, #00adb5, #4ec9b0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            letter-spacing: 2px;
         }
         
         .username {
-            font-size: 1.5rem;
-            color: #b0b0ff;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-            font-weight: 300;
-            text-shadow: 0 0 10px rgba(176, 176, 255, 0.5);
+            font-size: 1.3rem;
+            color: #0088ff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #0088ff;
         }
         
         .tagline {
-            font-size: 1.3rem;
-            color: #8a8aff;
-            max-width: 700px;
+            font-size: 1.1rem;
+            color: #ffffff;
+            max-width: 600px;
             margin: 0 auto;
             line-height: 1.6;
-            font-weight: 300;
-            text-shadow: 0 0 5px rgba(138, 138, 255, 0.5);
+            text-shadow: 0 0 5px #ffffff;
         }
         
-        .services-section {
-            margin-bottom: 50px;
+        /* Услуги */
+        .services {
+            margin: 30px 0;
         }
         
-        .section-title {
-            font-size: 1.9rem;
-            color: #00adb5;
-            margin-bottom: 30px;
-            text-align: center;
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-            text-shadow: 0 0 15px rgba(0, 173, 181, 0.6);
+        .service-item {
+            background: rgba(0, 20, 40, 0.3);
+            border-left: 3px solid #00ff88;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+            transition: all 0.3s;
         }
         
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00adb5, transparent);
+        .service-item:hover {
+            background: rgba(0, 20, 40, 0.6);
+            transform: translateX(10px);
         }
         
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+        .service-item h3 {
+            color: #00ff88;
+            margin-bottom: 5px;
         }
         
-        .service-card {
-            background: rgba(26, 26, 46, 0.7);
-            border-radius: 15px;
-            padding: 25px;
-            border: 1px solid rgba(0, 173, 181, 0.4);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
+        .service-item p {
+            color: #cccccc;
+            font-size: 0.95rem;
         }
         
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 173, 181, 0.4);
-            border-color: #00adb5;
-            background: rgba(26, 26, 46, 0.9);
-        }
-        
-        .service-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 173, 181, 0.3), transparent);
-            transition: left 0.7s;
-        }
-        
-        .service-card:hover::before {
-            left: 100%;
-        }
-        
-        .service-icon {
-            font-size: 2.5rem;
-            color: #00adb5;
-            margin-bottom: 20px;
-            text-align: center;
-            text-shadow: 0 0 15px rgba(0, 173, 181, 0.6);
-        }
-        
-        .service-card h3 {
-            font-size: 1.5rem;
-            color: #f0f0f0;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .service-card p {
-            color: #b0b0ff;
-            line-height: 1.6;
-            font-size: 1.05rem;
-            text-align: center;
-        }
-        
-        /* ПРОСТОЙ ПЛЕЕР ДЛЯ ПЕСНИ */
+        /* Плеер */
         .music-section {
-            margin-bottom: 50px;
+            margin: 30px 0;
+            text-align: center;
         }
         
         .music-player {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
             gap: 20px;
-            background: rgba(26, 26, 46, 0.6);
-            border-radius: 50px;
+            background: rgba(0, 0, 0, 0.4);
             padding: 15px 30px;
-            border: 1px solid rgba(0, 173, 181, 0.4);
-            max-width: 300px;
-            margin: 0 auto;
-            transition: all 0.3s;
-            backdrop-filter: blur(10px);
-        }
-        
-        .music-player:hover {
-            box-shadow: 0 0 30px rgba(0, 173, 181, 0.4);
-            border-color: #00adb5;
+            border-radius: 50px;
+            border: 2px solid #0088ff;
+            box-shadow: 0 0 20px rgba(0, 136, 255, 0.4);
         }
         
         .song-title {
             color: #ffaa00;
             font-size: 1.4rem;
             font-weight: bold;
-            text-shadow: 0 0 15px rgba(255, 170, 0, 0.7);
+            text-shadow: 0 0 10px #ffaa00;
+            min-width: 120px;
         }
         
         .play-btn {
-            background: rgba(0, 173, 181, 0.3);
-            border: 2px solid #00adb5;
-            color: #00adb5;
+            background: rgba(0, 255, 136, 0.2);
+            border: 2px solid #00ff88;
+            color: #00ff88;
             width: 50px;
             height: 50px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
-            box-shadow: 0 0 20px rgba(0, 173, 181, 0.4);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
         }
         
         .play-btn:hover {
-            background: rgba(0, 173, 181, 0.5);
+            background: rgba(0, 255, 136, 0.4);
             transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(0, 173, 181, 0.7);
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.6);
         }
         
-        .contact-section {
+        .play-btn.playing {
+            background: rgba(0, 255, 136, 0.6);
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.6); }
+            50% { box-shadow: 0 0 40px rgba(0, 255, 136, 1); }
+        }
+        
+        /* Telegram кнопка */
+        .telegram-section {
             text-align: center;
+            margin: 30px 0;
         }
         
         .telegram-btn {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 15px;
-            background: linear-gradient(135deg, rgba(0, 173, 181, 0.8), rgba(0, 140, 150, 0.8));
-            color: #f0f0f0;
+            gap: 10px;
+            background: rgba(0, 136, 255, 0.2);
+            color: #0088ff;
             text-decoration: none;
-            padding: 18px 40px;
-            border-radius: 50px;
-            font-size: 1.3rem;
-            font-weight: 600;
-            transition: all 0.4s;
-            border: none;
-            box-shadow: 0 10px 30px rgba(0, 173, 181, 0.4);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: 2px solid #0088ff;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(0, 136, 255, 0.3);
         }
         
         .telegram-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 173, 181, 0.6);
-            background: linear-gradient(135deg, rgba(0, 201, 214, 0.9), rgba(0, 173, 181, 0.9));
+            background: rgba(0, 136, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 136, 255, 0.6);
         }
         
-        .telegram-btn::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.7s;
-        }
-        
-        .telegram-btn:hover::before {
-            left: 100%;
-        }
-        
-        .telegram-icon {
-            font-size: 1.8rem;
-        }
-        
+        /* Футер */
         .footer {
             text-align: center;
-            margin-top: 40px;
+            margin-top: auto;
             padding-top: 20px;
-            border-top: 1px solid rgba(0, 173, 181, 0.2);
-            color: #8a8aff;
+            color: #888888;
             font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Статус песни */
+        .song-status {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 10px;
         }
         
         @media (max-width: 768px) {
             .code-column {
-                font-size: 13px;
+                font-size: 12px;
                 width: 100%;
-                animation-duration: 30s;
-                height: 300%;
-            }
-            
-            .python-code, .cpp-code, .js-code {
-                animation: floatUp 30s linear infinite;
+                animation-duration: 20s;
             }
             
             .cpp-code, .js-code {
                 display: none;
             }
             
-            .bio-container {
-                padding: 30px 15px;
-                background: rgba(10, 10, 18, 0.5);
-            }
-            
-            .header h1 {
-                font-size: 2.2rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .profile-icon {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .profile-icon-inner {
-                width: 110px;
-                height: 110px;
-                font-size: 44px;
-            }
-            
             .music-player {
-                max-width: 280px;
-                padding: 12px 25px;
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
             }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Фоновый код - ТЕПЕРЬ ЗАМЕТНЕЕ -->
+    <!-- Движущийся код -->
     <div class="code-background">
         <div class="code-column python-code">
-# Python код на фоне - ЗАМЕТНЫЙ
+# Python разработка
 import telebot
-import asyncio
 import sqlite3
-from datetime import datetime
 
 class TelegramBot:
     def __init__(self, token):
         self.bot = telebot.TeleBot(token)
-        self.db = sqlite3.connect('bot.db')
         self.setup_handlers()
     
     def setup_handlers(self):
         @self.bot.message_handler(commands=['start'])
         def send_welcome(message):
-            user = message.from_user
-            welcome = f"👋 Привет, {user.first_name}!"
-            self.bot.reply_to(message, welcome)
-        
-        @self.bot.message_handler(commands=['code'])
-        def send_code(message):
-            code = '''
-def fibonacci(n):
-    if n <= 1:
-        return n
-    return fibonacci(n-1) + fibonacci(n-2)
-            
-print(fibonacci(10))  # 55
-            '''
-            self.bot.reply_to(message, f"```python\n{code}\n```", parse_mode='Markdown')
+            self.bot.reply_to(message, "Привет! Я бот от varleew_developer")
         
         @self.bot.message_handler(func=lambda m: True)
         def echo_all(message):
-            self.bot.reply_to(message, f"Вы написали: {message.text}")
+            self.bot.reply_to(message, message.text)
 
-# Асинхронная обработка
-async def process_data(data):
-    await asyncio.sleep(0.1)
-    return [item * 2 for item in data]
-
-# Веб-скрейпинг
-import requests
-from bs4 import BeautifulSoup
-
-def get_website_data(url):
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, 'html.parser')
-    return soup.find_all('div', {'class': 'content'})
-
-# Обработка JSON
-import json
-
-def load_config():
-    with open('config.json', 'r') as f:
-        return json.load(f)
-
-config = load_config()
-bot_token = config['telegram_token']
-
-# Многопоточность
-from threading import Thread
-
-def background_task():
-    while True:
-        print("Фоновая задача выполняется...")
-        time.sleep(60)
-
-thread = Thread(target=background_task)
-thread.daemon = True
-thread.start()
-
-# Логирование
-import logging
-
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
-logger.info("Бот запущен успешно!")
-
-# Кэширование
-from functools import lru_cache
-
-@lru_cache(maxsize=128)
-def expensive_operation(n):
-    time.sleep(2)
-    return n * n
-
-# Контекстные менеджеры
-class DatabaseConnection:
-    def __enter__(self):
-        self.conn = sqlite3.connect('database.db')
-        return self.conn
-    
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        self.conn.close()
-
-with DatabaseConnection() as db:
-    cursor = db.cursor()
-    cursor.execute("SELECT * FROM users")
-    users = cursor.fetchall()
-
-# Генераторы для экономии памяти
-def read_large_file(file_path):
-    with open(file_path, 'r') as file:
-        for line in file:
-            yield line.strip()
-
-for line in read_large_file('data.txt'):
-    process_line(line)
+bot = TelegramBot('TOKEN')
+bot.bot.polling()
         </div>
         
         <div class="code-column cpp-code">
-// C++ код на фоне - ЗАМЕТНЫЙ
+// C++ разработка
 #include <iostream>
-#include <string>
-#include <vector>
-#include <thread>
-#include <mutex>
-#include <memory>
-#include <functional>
-
 using namespace std;
 
-// Шаблонный класс для обработки сообщений
-template<typename T>
-class MessageQueue {
-private:
-    vector<T> queue;
-    mutex mtx;
-    condition_variable cv;
-    
-public:
-    void push(const T& message) {
-        unique_lock<mutex> lock(mtx);
-        queue.push_back(message);
-        cv.notify_one();
-    }
-    
-    T pop() {
-        unique_lock<mutex> lock(mtx);
-        cv.wait(lock, [this] { return !queue.empty(); });
-        T message = queue.front();
-        queue.erase(queue.begin());
-        return message;
-    }
-};
-
-// Класс Telegram бота
-class TelegramBot {
-private:
-    string token;
-    string username;
-    bool is_running;
-    thread bot_thread;
-    
-public:
-    TelegramBot(const string& t, const string& u) 
-        : token(t), username(u), is_running(false) {}
-    
-    ~TelegramBot() {
-        stop();
-    }
-    
-    void start() {
-        is_running = true;
-        bot_thread = thread(&TelegramBot::run, this);
-        cout << "Бот " << username << " запущен!" << endl;
-    }
-    
-    void stop() {
-        is_running = false;
-        if (bot_thread.joinable()) {
-            bot_thread.join();
-        }
-        cout << "Бот " << username << " остановлен." << endl;
-    }
-    
-    void send_message(int64_t chat_id, const string& text) {
-        cout << "Отправка в чат " << chat_id << ": " << text << endl;
-    }
-    
-private:
-    void run() {
-        while (is_running) {
-            // Имитация получения сообщений
-            this_thread::sleep_for(chrono::seconds(1));
-            process_messages();
-        }
-    }
-    
-    void process_messages() {
-        // Обработка входящих сообщений
-        static int message_count = 0;
-        cout << "Обработано сообщений: " << ++message_count << endl;
-    }
-};
-
-// Умные указатели для управления памятью
-class UserData {
-private:
+class Developer {
     string name;
-    int id;
-    vector<string> messages;
+    string skills[3];
     
 public:
-    UserData(const string& n, int i) : name(n), id(i) {}
-    
-    void add_message(const string& msg) {
-        messages.push_back(msg);
+    Developer(string n) : name(n) {
+        skills[0] = "C++";
+        skills[1] = "Python";
+        skills[2] = "JavaScript";
     }
     
-    void print_info() const {
-        cout << "User: " << name << " (ID: " << id << ")" << endl;
-        cout << "Messages: " << messages.size() << endl;
+    void showSkills() {
+        for(int i = 0; i < 3; i++) {
+            cout << skills[i] << endl;
+        }
     }
-};
-
-// Фабричный метод для создания ботов
-unique_ptr<TelegramBot> create_bot(const string& type) {
-    if (type == "echo") {
-        return make_unique<TelegramBot>("ECHO_TOKEN", "EchoBot");
-    } else if (type == "admin") {
-        return make_unique<TelegramBot>("ADMIN_TOKEN", "AdminBot");
-    }
-    return nullptr;
-}
-
-// Лямбда-функции для обработки команд
-auto command_handler = [](const string& command) {
-    if (command == "/start") {
-        return "Добро пожаловать!";
-    } else if (command == "/help") {
-        return "Помощь по командам...";
-    }
-    return "Неизвестная команда";
 };
 
 int main() {
-    // Создание и запуск бота
-    auto bot = create_bot("echo");
-    if (bot) {
-        bot->start();
-        this_thread::sleep_for(chrono::seconds(5));
-        bot->stop();
-    }
-    
-    // Использование лямбда
-    cout << command_handler("/start") << endl;
-    
-    // Многопоточная обработка
-    vector<thread> threads;
-    for (int i = 0; i < 3; i++) {
-        threads.emplace_back([i] {
-            cout << "Поток " << i << " работает" << endl;
-        });
-    }
-    
-    for (auto& t : threads) {
-        t.join();
-    }
-    
+    Developer dev("varleew");
+    dev.showSkills();
     return 0;
 }
         </div>
         
         <div class="code-column js-code">
-// JavaScript код на фоне - ЗАМЕТНЫЙ
-const TelegramBot = require('node-telegram-bot-api');
+// JavaScript разработка
 const express = require('express');
-const mongoose = require('mongoose');
-const axios = require('axios');
-
-// Настройка бота
-const bot = new TelegramBot(process.env.BOT_TOKEN, {polling: true});
 const app = express();
-app.use(express.json());
 
-// Модель пользователя
-const userSchema = new mongoose.Schema({
-    userId: {type: Number, unique: true},
-    username: String,
-    firstName: String,
-    messagesCount: {type: Number, default: 0},
-    lastActivity: {type: Date, default: Date.now}
+app.get('/', (req, res) => {
+    res.send('Привет от varleew_developer!');
 });
 
-const User = mongoose.model('User', userSchema);
+// Telegram бот
+const TelegramBot = require('node-telegram-bot-api');
+const bot = new TelegramBot('TOKEN', {polling: true});
 
-// Подключение к MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => {
-    console.log('✅ MongoDB подключена');
-}).catch(err => {
-    console.error('❌ Ошибка MongoDB:', err);
-});
-
-// Обработчики команд
-bot.onText(/\/start/, async (msg) => {
+bot.on('message', (msg) => {
     const chatId = msg.chat.id;
-    const user = msg.from;
-    
-    // Сохранение пользователя в БД
-    await User.findOneAndUpdate(
-        {userId: user.id},
-        {
-            userId: user.id,
-            username: user.username,
-            firstName: user.first_name,
-            lastActivity: new Date()
-        },
-        {upsert: true, new: true}
-    );
-    
-    const welcomeMessage = `
-👨‍💻 *Привет, ${user.first_name}!*
-
-Я *varleew_developer* - создаю:
-🤖 Telegram боты
-🌐 Веб-сайты
-⚙️ Автоматизацию
-
-Напишите /help для списка команд
-Или свяжитесь со мной: @varleew
-    `;
-    
-    const options = {
-        parse_mode: 'Markdown',
-        reply_markup: {
-            inline_keyboard: [
-                [
-                    {text: '📞 Связаться', url: 'https://t.me/varleew'},
-                    {text: '💼 Услуги', callback_data: 'services'}
-                ],
-                [
-                    {text: '🌐 Портфолио', url: 'https://github.com/varleew'},
-                    {text: '📚 Технологии', callback_data: 'tech'}
-                ]
-            ]
-        }
-    };
-    
-    bot.sendMessage(chatId, welcomeMessage, options);
+    bot.sendMessage(chatId, 'Получил ваше сообщение!');
 });
 
-bot.onText(/\/help/, (msg) => {
-    const helpText = `
-*📋 Доступные команды:*
-/start - Начать диалог
-/help - Эта справка
-/services - Мои услуги
-/portfolio - Примеры работ
-/contact - Связаться со мной
-
-*💻 Технологии:*
-• Python (Django, aiogram)
-• JavaScript (React, Node.js)
-• C++ (Высокая производительность)
-• Базы данных (PostgreSQL, MongoDB)
-    `;
-    
-    bot.sendMessage(msg.chat.id, helpText, {parse_mode: 'Markdown'});
-});
-
-// Вебхуки для платежей
-app.post('/api/payment/webhook', async (req, res) => {
-    try {
-        const {userId, amount, currency, description} = req.body;
-        
-        // Верификация платежа
-        const paymentVerified = await verifyPayment(req.body);
-        
-        if (paymentVerified) {
-            // Обновление баланса пользователя
-            await updateUserBalance(userId, amount);
-            
-            // Уведомление пользователя
-            await bot.sendMessage(
-                userId,
-                `✅ *Платеж успешен!*\n` +
-                `Сумма: ${amount} ${currency}\n` +
-                `Описание: ${description}`,
-                {parse_mode: 'Markdown'}
-            );
-            
-            res.json({success: true});
-        } else {
-            throw new Error('Платеж не прошел верификацию');
-        }
-    } catch (error) {
-        console.error('Ошибка обработки платежа:', error);
-        res.status(500).json({error: error.message});
-    }
-});
-
-// Админ панель
-app.get('/admin/dashboard', async (req, res) => {
-    const usersCount = await User.countDocuments();
-    const activeUsers = await User.countDocuments({
-        lastActivity: {$gt: new Date(Date.now() - 24*60*60*1000)}
-    });
-    
-    res.json({
-        totalUsers: usersCount,
-        activeUsers: activeUsers,
-        timestamp: new Date()
-    });
-});
-
-// WebSocket для реального времени
-const WebSocket = require('ws');
-const wss = new WebSocket.Server({ port: 8080 });
-
-wss.on('connection', (ws) => {
-    console.log('Новое WebSocket соединение');
-    
-    ws.on('message', async (message) => {
-        const data = JSON.parse(message);
-        
-        // Обработка разных типов сообщений
-        switch (data.type) {
-            case 'statistics':
-                const stats = await getBotStatistics();
-                ws.send(JSON.stringify(stats));
-                break;
-            case 'broadcast':
-                broadcastMessage(data.message);
-                break;
-            case 'user_data':
-                const user = await getUserData(data.userId);
-                ws.send(JSON.stringify(user));
-                break;
-        }
-    });
-    
-    ws.on('close', () => {
-        console.log('WebSocket соединение закрыто');
-    });
-});
-
-// Вспомогательные функции
-async function verifyPayment(paymentData) {
-    // Здесь должна быть логика верификации платежа
-    return true;
-}
-
-async function updateUserBalance(userId, amount) {
-    // Обновление баланса в базе данных
-    // Реализация зависит от вашей структуры БД
-}
-
-async function getBotStatistics() {
-    const totalUsers = await User.countDocuments();
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const newToday = await User.countDocuments({lastActivity: {$gte: today}});
-    
-    return {
-        totalUsers,
-        newToday,
-        uptime: process.uptime()
-    };
-}
-
-// Запуск сервера
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`🚀 Сервер запущен на порту ${PORT}`);
+app.listen(3000, () => {
+    console.log('Сервер запущен');
 });
         </div>
     </div>
     
-    <!-- Основной контент -->
+    <!-- Контент -->
     <div class="bio-container">
         <div class="header">
             <div class="profile-icon">
-                <div class="profile-icon-inner">
-                    <i class="fas fa-code"></i>
-                </div>
+                <i class="fas fa-laptop-code"></i>
             </div>
             <h1>varleew_developer</h1>
             <div class="username">@varleew</div>
-            <div class="tagline">Разработка Telegram ботов, веб-сайтов и автоматизация на Python, C++, JavaScript. Работаю на заказ.</div>
+            <div class="tagline">Разработка Telegram ботов, сайтов и автоматизация на Python, C++, JavaScript. Работаю на заказ.</div>
         </div>
         
-        <div class="services-section">
-            <div class="section-title">Мои услуги</div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fab fa-telegram"></i>
-                    </div>
-                    <h3>Telegram боты</h3>
-                    <p>Многофункциональные боты: автопостинг, оплата, базы данных, интеграция с API, парсинг данных, админ-панели.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>Веб-сайты</h3>
-                    <p>Адаптивные сайты: лендинги, магазины, корпоративные порталы, веб-приложения, админки на React/Vue.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-terminal"></i>
-                    </div>
-                    <h3>Автоматизация</h3>
-                    <p>Скрипты для автоматизации: парсеры, боты для соцсетей, интеграции, обработка данных, API разработка.</p>
-                </div>
+        <div class="services">
+            <div class="service-item">
+                <h3>🤖 Telegram боты</h3>
+                <p>Полнофункциональные боты: автопостинг, оплата, базы данных, интеграция с API, парсинг данных.</p>
+            </div>
+            
+            <div class="service-item">
+                <h3>🌐 Веб-сайты</h3>
+                <p>Современные адаптивные сайты: лендинги, магазины, корпоративные порталы, веб-приложения.</p>
+            </div>
+            
+            <div class="service-item">
+                <h3>⚙️ Автоматизация</h3>
+                <p>Скрипты для автоматизации задач: парсеры, боты для соцсетей, интеграции, обработка данных.</p>
             </div>
         </div>
         
-        <!-- ПРОСТОЙ ПЛЕЕР -->
+        <!-- ПЛЕЕР -->
         <div class="music-section">
             <div class="music-player">
                 <div class="song-title">unhappy</div>
@@ -971,12 +406,13 @@ app.listen(PORT, () => {
                     <i class="fas fa-play" id="playIcon"></i>
                 </button>
             </div>
+            <div class="song-status" id="songStatus">Нажмите для воспроизведения</div>
         </div>
         
-        <div class="contact-section">
+        <div class="telegram-section">
             <a href="https://t.me/varleew" class="telegram-btn" target="_blank">
-                <i class="fab fa-telegram telegram-icon"></i>
-                Связаться в Telegram
+                <i class="fab fa-telegram"></i>
+                Написать в Telegram
             </a>
         </div>
         
@@ -985,81 +421,123 @@ app.listen(PORT, () => {
         </div>
     </div>
 
-    <!-- АУДИО ДЛЯ ПЕСНИ (нужно загрузить на GitHub) -->
-    <audio id="unhappyAudio" preload="auto">
-        <!-- 
-            ЗАГРУЗИТЕ ФАЙЛ unhappy.mp3 В ВАШ РЕПОЗИТОРИЙ НА GITHUB
-            Затем раскомментируйте строку ниже и укажите правильную ссылку:
-            <source src="https://raw.githubusercontent.com/ВАШ_НИК/ВАШ_РЕПО/main/unhappy.mp3" type="audio/mpeg">
-        -->
-        <source src="https://raw.githubusercontent.com/varleew/your-repo/main/unhappy.mp3" type="audio/mpeg">
-        Ваш браузер не поддерживает аудио элемент.
-    </audio>
-
+    <!-- СКРИПТ ДЛЯ МУЗЫКИ -->
     <script>
-        // Элементы управления музыкой
+        // Элементы
         const playBtn = document.getElementById('playBtn');
         const playIcon = document.getElementById('playIcon');
-        const audio = document.getElementById('unhappyAudio');
+        const songStatus = document.getElementById('songStatus');
         
+        // Создаем аудио элемент
+        const audio = new Audio();
+        
+        // Варианты ссылок на песню (попробуйте разные)
+        const audioSources = [
+            // Ваша ссылка с GitHub (замените username и repo)
+            'https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/unhappy.mp3',
+            'https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/master/unhappy.mp3',
+            'https://github.com/YOUR_USERNAME/YOUR_REPO/raw/main/unhappy.mp3',
+            
+            // Альтернативные хосты (если GitHub не работает)
+            'https://assets.codepen.io/your-audio/unhappy.mp3',
+            'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' // Тестовая песня
+        ];
+        
+        let currentSourceIndex = 0;
         let isPlaying = false;
         
-        // Функция для переключения воспроизведения
-        function togglePlay() {
-            if (audio.paused) {
-                audio.play();
-                playIcon.classList.remove('fa-play');
-                playIcon.classList.add('fa-pause');
-                isPlaying = true;
-                playBtn.style.background = 'rgba(0, 173, 181, 0.7)';
-                playBtn.style.boxShadow = '0 0 40px rgba(0, 173, 181, 0.9)';
-            } else {
+        // Функция для загрузки аудио
+        function loadAudioSource(index) {
+            audio.src = audioSources[index];
+            audio.load();
+            songStatus.textContent = 'Загрузка аудио...';
+            
+            audio.addEventListener('canplaythrough', function() {
+                songStatus.textContent = 'Готово к воспроизведению';
+                console.log('Аудио загружено: ' + audioSources[index]);
+            }, { once: true });
+            
+            audio.addEventListener('error', function(e) {
+                console.error('Ошибка загрузки: ' + audioSources[index]);
+                if (index < audioSources.length - 1) {
+                    songStatus.textContent = 'Пробуем другую ссылку...';
+                    setTimeout(() => loadAudioSource(index + 1), 1000);
+                } else {
+                    songStatus.textContent = 'Не удалось загрузить аудио';
+                    playBtn.disabled = true;
+                }
+            });
+        }
+        
+        // Начинаем загрузку
+        loadAudioSource(0);
+        
+        // Управление воспроизведением
+        playBtn.addEventListener('click', function() {
+            if (isPlaying) {
                 audio.pause();
                 playIcon.classList.remove('fa-pause');
                 playIcon.classList.add('fa-play');
+                playBtn.classList.remove('playing');
+                songStatus.textContent = 'Пауза';
                 isPlaying = false;
-                playBtn.style.background = 'rgba(0, 173, 181, 0.3)';
-                playBtn.style.boxShadow = '0 0 20px rgba(0, 173, 181, 0.4)';
+            } else {
+                audio.play().then(() => {
+                    playIcon.classList.remove('fa-play');
+                    playIcon.classList.add('fa-pause');
+                    playBtn.classList.add('playing');
+                    songStatus.textContent = 'Играет';
+                    isPlaying = true;
+                }).catch(error => {
+                    console.error('Ошибка воспроизведения:', error);
+                    songStatus.textContent = 'Ошибка воспроизведения';
+                });
             }
-        }
+        });
         
-        // Обработчик клика
-        playBtn.addEventListener('click', togglePlay);
-        
-        // Обновление состояния при окончании песни
+        // События аудио
         audio.addEventListener('ended', function() {
             playIcon.classList.remove('fa-pause');
             playIcon.classList.add('fa-play');
+            playBtn.classList.remove('playing');
+            songStatus.textContent = 'Завершено';
             isPlaying = false;
-            playBtn.style.background = 'rgba(0, 173, 181, 0.3)';
-            playBtn.style.boxShadow = '0 0 20px rgba(0, 173, 181, 0.4)';
         });
         
-        // Плавное появление элементов
-        document.addEventListener('DOMContentLoaded', function() {
-            const elements = document.querySelectorAll('.header, .service-card, .music-player, .telegram-btn');
-            
-            elements.forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                
-                setTimeout(() => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, index * 200);
-            });
+        audio.addEventListener('timeupdate', function() {
+            if (isPlaying) {
+                const progress = (audio.currentTime / audio.duration) * 100 || 0;
+                songStatus.textContent = `Играет: ${Math.round(progress)}%`;
+            }
         });
         
-        // Консольная инструкция
-        console.log("=== ИНСТРУКЦИЯ ДЛЯ GITHUB ===");
-        console.log("1. Создайте репозиторий на GitHub");
-        console.log("2. Загрузите этот HTML файл как index.html");
-        console.log("3. Загрузите файл unhappy.mp3 в тот же репозиторий");
-        console.log("4. Включите GitHub Pages в настройках репозитория");
-        console.log("5. Обновите ссылку на песню в аудио теге:");
-        console.log("   <source src=\"https://raw.githubusercontent.com/ВАШ_НИК/РЕПОЗИТОРИЙ/main/unhappy.mp3\" type=\"audio/mpeg\">");
-        console.log("6. Ваша ссылка будет: https://ВАШ_НИК.github.io/РЕПОЗИТОРИЙ/");
+        // Диагностика в консоли
+        console.log('=== ДИАГНОСТИКА АУДИО ===');
+        console.log('1. Проверьте ссылку на песню:');
+        console.log('   - Файл должен быть в репозитории');
+        console.log('   - Формат должен быть .mp3');
+        console.log('   - Ссылка должна быть прямой (raw.githubusercontent.com)');
+        console.log('');
+        console.log('2. Ваши данные для замены:');
+        console.log('   - YOUR_USERNAME = ваш логин на GitHub');
+        console.log('   - YOUR_REPO = название репозитория');
+        console.log('');
+        console.log('3. Пример правильной ссылки:');
+        console.log('   https://raw.githubusercontent.com/varleew/bio-page/main/unhappy.mp3');
+        console.log('');
+        console.log('4. Чтобы проверить ссылку:');
+        console.log('   - Откройте её в браузере');
+        console.log('   - Должен начаться скачивание mp3 файла');
+        
+        // Если не работает с GitHub, используем тестовую песню
+        setTimeout(() => {
+            if (!audio.src) {
+                console.log('Использую тестовую песню...');
+                audio.src = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
+                audio.load();
+                songStatus.textContent = 'Используется тестовая песня';
+            }
+        }, 3000);
     </script>
 </body>
 </html>
